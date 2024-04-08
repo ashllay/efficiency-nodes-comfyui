@@ -502,11 +502,11 @@ def suppress_output():
 
 # Set global preview_method
 def set_preview_method(method):
-    if method == 'auto' or method == 'LatentPreviewMethod.Auto':
+    if method == 'auto' or method == 'LatentPreviewMethod.Auto' or method == latent_preview.LatentPreviewMethod.Auto:
         args.preview_method = latent_preview.LatentPreviewMethod.Auto
-    elif method == 'latent2rgb' or method == 'LatentPreviewMethod.Latent2RGB':
+    elif method == 'latent2rgb' or method == 'LatentPreviewMethod.Latent2RGB' or method == latent_preview.LatentPreviewMethod.Latent2RGB:
         args.preview_method = latent_preview.LatentPreviewMethod.Latent2RGB
-    elif method == 'taesd' or method == 'LatentPreviewMethod.TAESD':
+    elif method == 'taesd' or method == 'LatentPreviewMethod.TAESD' or method == latent_preview.LatentPreviewMethod.TAESD:
         args.preview_method = latent_preview.LatentPreviewMethod.TAESD
     else:
         args.preview_method = latent_preview.LatentPreviewMethod.NoPreviews
