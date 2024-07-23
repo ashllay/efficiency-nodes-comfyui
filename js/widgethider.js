@@ -456,7 +456,7 @@ function handleHiResFixScript(node, widget) {
     } else if (findWidgetByName(node, 'upscale_type').value === "both") {
         toggleWidget(node, findWidgetByName(node, 'pixel_upscaler'), true);
         toggleWidget(node, findWidgetByName(node, 'hires_ckpt_name'), true);
-        toggleWidget(node, findWidgetByName(node, 'latent_upscaler'));
+        toggleWidget(node, findWidgetByName(node, 'latent_upscaler'), true);
         toggleWidget(node, findWidgetByName(node, 'use_same_seed'), true);
         toggleWidget(node, findWidgetByName(node, 'hires_steps'), true);
         toggleWidget(node, findWidgetByName(node, 'denoise'), true);
@@ -610,6 +610,9 @@ app.registerExtension({
 
             // Store the original descriptor if it exists
             let originalDescriptor = Object.getOwnPropertyDescriptor(w, 'value');
+            if (!originalDescriptor) {
+                originalDescriptor = Object.getOwnPropertyDescriptor(w.constructor.prototype, 'value');
+            }
 
             widgetLogic(node, w);
 
